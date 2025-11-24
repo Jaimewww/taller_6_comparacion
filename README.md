@@ -80,7 +80,7 @@ mvn exec:java -Dexec.mainClass="Main"
 
 *Nota: Si cambiaste la clase `Main` a un paquete específico (ej. `main.Main`), actualiza el comando anterior.*
 
-## 📂 Estructura de Datos (CSV)
+## Estructura de Datos (CSV)
 
 El proyecto incluye una utilidad `CsvReader` capaz de leer columnas de archivos CSV delimitados por punto y coma (`;`). Soporta:
 
@@ -126,4 +126,3 @@ Iniciando benchmark para: Selection Sort...
 * **Alejandro Padilla**
 
 <!-- end list -->
-```
