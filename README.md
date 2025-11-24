@@ -1,10 +1,3 @@
-Entendido. Es probable que las referencias de citación (\`\`) incluidas dentro del bloque de código anterior hayan interferido con el formato Markdown puro que necesitas para tu archivo.
-
-A continuación, presento el contenido del `README.md` limpio, sin etiquetas de citación internas, listo para copiar y guardar en tu proyecto.
-
------
-
-````markdown
 # Taller 6: Comparación de Algoritmos de Ordenamiento
 
 Este proyecto tiene como objetivo realizar una comparación empírica del rendimiento de tres algoritmos de ordenamiento clásicos ($O(n^2)$). La aplicación carga datos reales desde archivos CSV, ejecuta benchmarks controlados y genera estadísticas detalladas sobre el comportamiento de cada algoritmo.
