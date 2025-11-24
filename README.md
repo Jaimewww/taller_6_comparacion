@@ -1,6 +1,6 @@
 # Taller 6: Comparación de Algoritmos de Ordenamiento
 
-Este proyecto tiene como objetivo realizar una comparación empírica del rendimiento de tres algoritmos de ordenamiento clásicos ($O(n^2)$). La aplicación carga datos reales desde archivos CSV, ejecuta benchmarks controlados y genera estadísticas detalladas sobre el comportamiento de cada algoritmo.
+Este proyecto tiene como objetivo realizar una comparación empírica del rendimiento de tres algoritmos de ordenamiento clásicos. La aplicación carga datos reales desde archivos CSV, ejecuta benchmarks controlados y genera estadísticas detalladas sobre el comportamiento de cada algoritmo.
 
 ## Objetivo del Proyecto
 
