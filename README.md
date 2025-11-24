@@ -36,7 +36,7 @@ En el archivo `pom.xml`:
 </dependency>
 ````
 
-## ⚙️ Instalación y Compilación
+## Instalación y Compilación
 
 1.  **Clonar el repositorio** (o descargar los archivos):
 
@@ -70,8 +70,6 @@ Puedes ejecutar la clase principal directamente usando el plugin `exec-maven-plu
 ```bash
 mvn exec:java -Dexec.mainClass="Main"
 ```
-
-*Nota: Si cambiaste la clase `Main` a un paquete específico (ej. `main.Main`), actualiza el comando anterior.*
 
 ## Estructura de Datos (CSV)
 
