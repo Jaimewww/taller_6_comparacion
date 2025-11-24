@@ -13,8 +13,8 @@ public class SortUtils {
      * @param y
      * @param array
      */
-    public static void swap(int x, int y, int[] array) {
-        int temp = array[x];
+    public static void swap(int x, int y, Double[] array) {
+        Double temp = array[x];
         array[x] = array[y];
         array[y] = temp;
     }

@@ -1,59 +1,38 @@
 package sorting;
 
-import java.util.Arrays;
-
 /**
-* Implementacion de bubblesort (Ordenamiento por burbuja) para arreglos de int
-* @author Jaime Landazuri, Alejandro Padilla
-*/
+ * Implementación del algoritmo de ordenamiento Bubble Sort (Ordenamiento de burbuja) adaptada para benchmarking.
+ * @author Jaime Landazuri, Alejandro Padilla
+ */
 
 public class BubbleSort {
-    public static void sort(int[] array) {
-        // Validación básica
-        if (array == null) return;
 
-        System.out.println("Estado inicial: " + Arrays.toString(array));
-        System.out.println("------------------------------------------------");
+    public static SortStats sort(Double[] array) {
+        long comparisons = 0;
+        long swaps = 0;
+        int n = array.length;
+        boolean swapped;
 
-        int length = array.length;
-        boolean hasSwaps;
-        int totalSwaps = 0; // Contador global de swaps (intercambios)
-        int passCounter = 1; // Contador de pasadas
+        long startTime = System.nanoTime(); // Inicio medicion tiempo
 
-        // El bucle externo reduce el rango en cada pasada
-        for (int i = length - 1; i > 0; i--) {
+        for (int i = 0; i < n - 1; i++) {
+            swapped = false;
+            for (int j = 0; j < n - 1 - i; j++) {
 
-            hasSwaps = false;
-            System.out.println("Pasada " + passCounter + " (Burbujeando hasta índice " + i + "):");
-
-            for (int j = 0; j < i; j++) {
-                if (array[j] > array[j + 1]) {
-                    // Imprimimos el detalle ANTES del swap para ver qué se mueve
-                    System.out.println("  -> Swap: " + array[j] + " > " + array[j + 1] +
-                            " (índices " + j + " y " + (j + 1) + ")");
+                comparisons++;
+                if (array[j].compareTo(array[j + 1]) > 0) {
 
                     SortUtils.swap(j, j + 1, array);
 
-                    hasSwaps = true;
-                    totalSwaps++;
+                    swaps++;
+                    swapped = true;
                 }
             }
-
-            // Imprimimos el estado del arreglo al terminar esta pasada
-            System.out.println("  [Arreglo tras Pasada " + passCounter + "]: " + Arrays.toString(array));
-
-            // OPTIMIZACIÓN: Corte temprano
-            if (!hasSwaps) {
-                System.out.println("  > No hubo cambios, arreglo ordenado.");
-                System.out.println("------------------------------------------------");
-                break;
-            }
-
-            System.out.println("------------------------------------------------");
-            passCounter++;
+            if (!swapped) break;
         }
 
-        System.out.println("Arreglo final ordenado: " + Arrays.toString(array));
-        System.out.println("Total de intercambios realizados: " + totalSwaps);
+        long endTime = System.nanoTime(); // Fin medicion tiempo
+
+        return new SortStats("Bubble Sort", comparisons, swaps, (endTime - startTime));
     }
 }

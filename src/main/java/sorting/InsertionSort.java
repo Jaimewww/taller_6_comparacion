@@ -1,36 +1,44 @@
 package sorting;
-import java.util.Arrays;
 
 /**
- * Implementación del algoritmo de ordenamiento por inserción.
+ * Implementación del algoritmo de ordenamiento por inserción y adaptada para benchmarking.
  * @author Jaime Landázuri, Alejandro Padilla
  */
 
-public final class InsertionSort {
-    public static void sort(int[] array) {
-        System.out.println("Estado inicial: " + Arrays.toString(array));
-        System.out.println("------------------------------------------------");
+public class InsertionSort {
+
+    public static SortStats sort(Double[] array) {
+        long comparisons = 0;
+        long swaps = 0; // En Insertion Sort, contamos los desplazamientos como swaps
+        int n = array.length;
+
+        long startTime = System.nanoTime(); // Inicio cronómetro
 
         // Se recorre desde el segundo elemento hasta el final
-        for(int i = 1; i < array.length; i++){
-            int key = array[i];
+        for (int i = 1; i < n; i++) {
+            Double key = array[i];
             int j = i - 1;
 
-            System.out.println("Iteración " + i + " (Valor a insertar: " + key + ")");
+            // Bucle interno para desplazamientos
+            while (j >= 0) {
+                comparisons++; // Contamos la comparación que vamos a hacer
 
-            // Trazas de desplazamientos internos
-            while (j >= 0 && array[j] > key){
-                // Imprimir posiciones movidas
-                System.out.println("  - Desplazando " + array[j] + " de la pos " + j + " a la " + (j + 1));
-
-                array[j + 1] = array[j];
-                j = j - 1;
+                if (array[j].compareTo(key) > 0) {
+                    // Desplazamiento
+                    array[j + 1] = array[j];
+                    swaps++; // Contamos el desplazamiento
+                    j--;
+                } else {
+                    // Si no es mayor, terminamos el bucle interno
+                    break;
+                }
             }
+            // Insertamos la clave en su posición correcta
             array[j + 1] = key;
-
-            // Imprimir arreglo resultante por iteración
-            System.out.println("  [Arreglo tras iteración " + i + "]: " + Arrays.toString(array));
-            System.out.println("------------------------------------------------");
         }
+
+        long endTime = System.nanoTime(); // Fin cronómetro
+
+        return new SortStats("Insertion Sort", comparisons, swaps, (endTime - startTime));
     }
 }
